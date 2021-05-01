@@ -1,4 +1,6 @@
 import math
+import numpy as np
+
 def __mediana__():
     filas = int(input("Cuantas filas, eje x:  "))
     columnas = int((input("Cuantas columnas, eje y: ")))
@@ -134,12 +136,36 @@ def __ecualizacion_():
     
     
     
+def __MatrizCaminos__():
+    fil = int(input("Ingrese la cantidad de filas: "))
+    col = int(input("Ingrese la cantidad de columnas: "))
+    dimenciones = (fil,col)
     
+    MatrizOriginal = np.zeros(dimenciones)
     
+    for i in range(fil):
+        for j in range(col):
+            num =  int(input("Ingrese el numero en la posicion: "+ str(i)+"," + str(j)+ " : "))
+            MatrizOriginal[i,j] = num
+    print("Su matriz original es : ")
+    print(MatrizOriginal)
+    print("--------------------------------")
+    for supa in range(fil*col):
+        for i in range(fil):
+            for j in range(col):
 
+                if MatrizOriginal[i,j] == 1 : 
+                    
+                    for k in range(col):
+                        if MatrizOriginal[j,k] == 1:
+                            MatrizOriginal[i,k]=1
+                            continue
+    print("La matriz de caminos es: ")
+    print(MatrizOriginal)
 
 
 #__expancion__()
-__ecualizacion_()
+#__ecualizacion_()
+__MatrizCaminos__()
 asds=(input())
     
