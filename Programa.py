@@ -168,6 +168,66 @@ class computacional:
                                 continue
         print("La matriz de caminos es: ")
         print(MatrizOriginal)
+#----------------Algoritmo djkastra----------------
+    def djkastra(self):
+        fil = int(input("Ingrese la cantidad de filas: "))
+        col = int(input("Ingrese la cantidad de columnas: "))
+        dimenciones = (fil,col)
+        
+        MatrizOriginal = np.zeros(dimenciones)
+        
+        for i in range(fil):
+            for j in range(col):
+                num =  int(input("Ingrese el numero en la posicion: "+ str(i)+"," + str(j)+ " : "))
+                MatrizOriginal[i,j] = num
+        print("Su matriz original es : ")
+        print(MatrizOriginal)
+        print("--------------------------------")
+        for supa in range(fil*col):
+            for i in range(fil):
+                for j in range(col):
+
+                    if MatrizOriginal[i,j] == 1 : 
+                        
+                        for k in range(col):
+                            if MatrizOriginal[j,k] == 1:
+                                MatrizOriginal[i,k]=1
+                                continue
+        for i in range(fil):
+            MatrizOriginal[i,i]= 1
+            
+        contadorUnos = 0
+        conjuntoDeUnos=[]
+        for i in range(fil):
+            contadorUnos = 0
+            for j in range(col):
+                if MatrizOriginal[i,j]== 1:
+                    contadorUnos = contadorUnos+1
+            conjuntoDeUnos.append([contadorUnos,i])
+        #print(conjuntoDeUnos)
+        temp = []
+        
+        for i in range(len(conjuntoDeUnos)):
+            least = i
+            for j in range(i+1,len(conjuntoDeUnos)):
+                if conjuntoDeUnos[i][0]<conjuntoDeUnos[j][0]:
+                    temp = conjuntoDeUnos[i]
+                    conjuntoDeUnos[i] = conjuntoDeUnos[j]
+                    conjuntoDeUnos[j] = temp
+
+        #print(conjuntoDeUnos)
+        
+        reemplazo = []
+        for i in range(len(conjuntoDeUnos)):
+            reemplazo.append(conjuntoDeUnos[i][1])
+        
+        MatrizOriginal=MatrizOriginal[reemplazo,:]
+        MatrizOriginal=MatrizOriginal[:,reemplazo]
+        
+        print(MatrizOriginal)
+        print("En el orden: ")
+        print(reemplazo)
+        
 
 
 

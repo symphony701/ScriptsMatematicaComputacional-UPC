@@ -7,7 +7,7 @@ programa = computacional()
 
 while True:
     print("---------------------------------------------------------------------------")
-    print("Que ejercicio deseas realizar? : \n 1.-Mediana \n 2.-Expancion  \n 3.-Laplaciano \n 4.-Ecualizacon \n 5.-Matriz de caminos \n 6.-Salir \n")
+    print("Que ejercicio deseas realizar? : \n 1.-Mediana \n 2.-Expancion  \n 3.-Laplaciano \n 4.-Ecualizacon \n 5.-Matriz de caminos \n 6.-Algoritmo Dkjastra \n 7.-Salir")
     opcion = int(input())
     if opcion == 1:
         programa.mediana()
@@ -20,6 +20,8 @@ while True:
     elif opcion == 5:
         programa.MatrizCaminos()
     elif opcion == 6:
+        programa.djkastra()
+    elif opcion == 7 :
         break
     else: 
         print("Elige bien pe tmre xd")
