@@ -169,7 +169,7 @@ class computacional:
         print("La matriz de caminos es: ")
         print(MatrizOriginal)
 #----------------Algoritmo djkastra----------------
-    def djkastra(self):
+    def conexa(self):
         fil = int(input("Ingrese la cantidad de filas: "))
         col = int(input("Ingrese la cantidad de columnas: "))
         dimenciones = (fil,col)
